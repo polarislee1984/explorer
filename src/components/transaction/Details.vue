@@ -29,13 +29,6 @@
 
       <div class="list-row-border-b">
         <div class="mr-4">
-          {{ $t("Confirmations") }}
-        </div>
-        <div>{{ confirmations }}</div>
-      </div>
-
-      <div class="list-row-border-b">
-        <div class="mr-4">
           {{ $t("Amount") }}
         </div>
         <div
@@ -70,32 +63,6 @@
         </div>
         <div v-if="transaction.timestamp">
           {{ readableTimestamp(transaction.timestamp.unix) }}
-        </div>
-      </div>
-
-      <div
-        v-if="transaction.vendorField"
-        class="list-row-border-b-no-wrap"
-      >
-        <div class="mr-4">
-          {{ $t("Smartbridge") }}
-        </div>
-        <div class="overflow-hidden break-words">
-          {{ emojify(transaction.vendorField) }}
-        </div>
-      </div>
-
-      <div class="list-row">
-        <div class="mr-4">
-          {{ $t("Block") }}
-        </div>
-        <div>
-          <LinkBlock
-            v-if="transaction.blockId"
-            :id="transaction.blockId"
-          >
-            {{ transaction.blockId }}
-          </LinkBlock>
         </div>
       </div>
     </div>

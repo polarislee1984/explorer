@@ -4,27 +4,7 @@
 
     <WalletDetails :wallet="wallet" />
 
-    <section
-      v-show="isDelegate"
-      :class="{ 'py-5 md:py-10': isDelegate }"
-      class="page-section mb-5"
-    >
-      <div class="px-5 sm:px-10">
-        <WalletDelegate
-          v-show="isDelegate"
-          :wallet="wallet"
-          @username="username = $event"
-        />
-        <WalletVoters
-          v-show="isDelegate"
-          :wallet="wallet"
-          :username="username"
-        />
-      </div>
-    </section>
-
     <WalletTransactions
-      v-if="wallet"
       :wallet="wallet"
     />
   </div>
@@ -32,19 +12,15 @@
 
 <script type="text/ecmascript-6">
 import {
-  WalletDelegate,
   WalletDetails,
-  WalletTransactions,
-  WalletVoters
+  WalletTransactions
 } from '@/components/wallet'
 import WalletService from '@/services/wallet'
 
 export default {
   components: {
-    WalletDelegate,
     WalletDetails,
-    WalletTransactions,
-    WalletVoters
+    WalletTransactions
   },
 
   data: () => ({
@@ -54,9 +30,6 @@ export default {
   }),
 
   computed: {
-    isDelegate () {
-      return this.wallet.isDelegate
-    }
   },
 
   async beforeRouteEnter (to, from, next) {

@@ -50,24 +50,6 @@
           ><path d="M1216 832q0-185-131.5-316.5t-316.5-131.5-316.5 131.5-131.5 316.5 131.5 316.5 316.5 131.5 316.5-131.5 131.5-316.5zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225-55.5-273.5 55.5-273.5 150-225 225-150 273.5-55.5 273.5 55.5 225 150 150 225 55.5 273.5q0 220-124 399l343 343q37 37 37 90z" /></svg>
         </label>
       </div>
-
-      <span
-        v-if="shouldDisplayCurrency"
-        class="border-r mx-2 md:mx-4 lg:mx-6 my-4 block"
-      />
-      <ToggleCurrency v-if="shouldDisplayCurrency" />
-
-      <span
-        v-if="shouldDisplayChart"
-        class="border-r mx-2 md:mx-4 lg:mx-6 my-4 hidden md:block"
-      />
-      <ToggleChart v-if="shouldDisplayChart" />
-
-      <span class="border-r mx-2 md:mx-4 lg:mx-6 my-4" />
-      <ToggleTheme />
-
-      <span class="border-r mx-2 md:mx-4 lg:mx-6 my-4 hidden md:block" />
-      <ToggleLanguage />
     </div>
   </div>
 </template>
@@ -119,9 +101,7 @@ export default {
 
   methods: {
     setMobilePlaceholder (showMobile) {
-      this.placeholder = showMobile
-        ? this.$i18n.t('Search')
-        : this.$i18n.t('Find a block, transaction, address or delegate')
+      this.placeholder = 'Search transaction or addresses'
     }
   }
 }

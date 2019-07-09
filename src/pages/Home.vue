@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-2xl mx-auto md:pt-5">
-    <ContentHeader>{{ $t("Latest transactions and blocks") }}</ContentHeader>
+    <ContentHeader>Latest transactions</ContentHeader>
 
     <section
       v-if="priceChart"
@@ -21,12 +21,6 @@
           >
             {{ $t("Latest transactions") }}
           </div>
-          <div
-            :class="dataView === 'blocks' ? 'active-tab' : 'inactive-tab'"
-            @click="dataView = 'blocks'"
-          >
-            {{ $t("Latest blocks") }}
-          </div>
         </nav>
 
         <SelectionType
@@ -36,11 +30,8 @@
       </div>
 
       <LatestTransactions
-        v-if="dataView === 'transactions'"
         :transaction-type="transactionType"
       />
-
-      <LatestBlocks v-if="dataView === 'blocks'" />
     </section>
   </div>
 </template>

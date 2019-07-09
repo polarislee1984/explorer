@@ -7,20 +7,17 @@ const BlockComponent = () => import('@/pages/Block')
 const BlockTransactionsComponent = () => import('@/pages/Block/Transactions')
 const BlocksComponent = () => import('@/pages/Blocks')
 const WalletComponent = () => import('@/pages/Wallet')
-const WalletVotersComponent = () => import('@/pages/Wallet/Voters')
 const WalletBlocksComponent = () => import('@/pages/Wallet/Blocks')
 const WalletTransactionsComponent = () => import('@/pages/Wallet/Transactions')
 const TransactionComponent = () => import('@/pages/Transaction')
 const TransactionsComponent = () => import('@/pages/Transactions')
-// const StatisticsComponent = () => import('@/pages/Statistics')
-const DelegateMonitorComponent = () => import('@/pages/DelegateMonitor')
 const TopWalletsComponent = () => import('@/pages/TopWallets')
 const NotFoundComponent = () => import('@/pages/404')
 
 Vue.use(Router)
 
 function getTitle (title) {
-  return `${title} - ${process.env.TITLE}`
+  return `${title} - Blockchain Explorer`
 }
 
 const router = new Router({
@@ -37,20 +34,6 @@ const router = new Router({
       name: 'wallet',
       component: WalletComponent,
       meta: { title: route => { return getTitle('Wallet ' + route.params.address) } }
-    },
-    {
-      path: '/wallets/:address/voters',
-      redirect: to => ({
-        name: 'wallet-voters',
-        params: { address: to.params.address, page: 1 }
-      }),
-      meta: { title: route => { return getTitle('Voters') } }
-    },
-    {
-      path: '/wallets/:address/voters/:page(\\d+)',
-      name: 'wallet-voters',
-      component: WalletVotersComponent,
-      meta: { title: route => { return getTitle('Voters') } }
     },
     {
       path: '/wallets/:address/blocks',
@@ -137,12 +120,6 @@ const router = new Router({
       meta: { title: route => { return getTitle('Transactions') } }
     },
     {
-      path: '/delegate-monitor',
-      name: 'delegate-monitor',
-      component: DelegateMonitorComponent,
-      meta: { title: route => { return getTitle('Delegate Monitor') } }
-    },
-    {
       path: '/top-wallets',
       redirect: to => ({ name: 'top-wallets', params: { page: 1 } }),
       meta: { title: route => { return getTitle('Top Wallets') } }
@@ -185,11 +162,6 @@ const router = new Router({
         params: { id: to.params.id }
       }),
       meta: { title: route => { return getTitle('Transaction') } }
-    },
-    {
-      path: '/delegateMonitor',
-      redirect: '/delegate-monitor',
-      meta: { title: route => { return getTitle('Delegate Monitor') } }
     },
     {
       path: '/topAccounts',
