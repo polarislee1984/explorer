@@ -1,11 +1,8 @@
 <template>
   <div>
     <Loader :data="transactions">
-      <div class="hidden sm:block">
+      <div>
         <TableTransactionsDesktop :transactions="transactions" />
-      </div>
-      <div class="sm:hidden">
-        <TableTransactionsMobile :transactions="transactions" />
       </div>
       <div class="mx-5 sm:mx-10 mt-5 md:mt-10 flex flex-wrap">
         <RouterLink
@@ -21,44 +18,74 @@
 </template>
 
 <script type="text/ecmascript-6">
-import TransactionService from '@/services/transaction'
+//import TransactionService from '@/services/transaction'
 
 export default {
   name: 'LatestTransactions',
 
-  props: {
-    transactionType: {
-      type: Number,
-      required: true
-    }
-  },
-
   data: () => ({
-    transactions: null
-  }),
-
-  watch: {
-    async transactionType () {
-      this.transactions = null
-      await this.getTransactions()
-    }
-  },
-
-  async mounted () {
-    await this.prepareComponent()
-  },
-
-  methods: {
-    async prepareComponent () {
-      await this.getTransactions()
-
-      this.$store.watch(state => state.network.height, value => this.getTransactions())
-    },
-
-    async getTransactions () {
-      const { data } = await TransactionService.filterByType(1, this.transactionType)
-      this.transactions = data
-    }
-  }
+    transactions: [
+      {
+        id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+        sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+        recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+        fromAmount:100,
+        toAmount:95,
+        fromCurrency: 'USD',
+        toCurrency: 'USD',
+        fee:5,
+        type:'Transfer',
+        timestamp:new Date('2019-07-09 20:11:23').getTime(),
+      },
+      {
+        id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+        sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+        recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+        fromAmount:100,
+        toAmount:95,
+        fromCurrency: 'USD',
+        toCurrency: 'USD',
+        fee:5,
+        type:'Transfer',
+        timestamp:new Date('2019-07-09 20:11:23').getTime(),
+      },
+      {
+        id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+        sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+        recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+        fromAmount:100,
+        toAmount:95,
+        fromCurrency: 'USD',
+        toCurrency: 'USD',
+        fee:5,
+        type:'Transfer',
+        timestamp:new Date('2019-07-09 20:11:23').getTime(),
+      },
+      {
+        id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+        sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+        recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+        fromAmount:100,
+        toAmount:95,
+        fromCurrency: 'USD',
+        toCurrency: 'USD',
+        fee:5,
+        type:'Transfer',
+        timestamp:new Date('2019-07-09 20:11:23').getTime(),
+      },
+      {
+        id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+        sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+        recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+        fromAmount:100,
+        toAmount:95,
+        fromCurrency: 'USD',
+        toCurrency: 'USD',
+        fee:5,
+        type:'Transfer',
+        timestamp:new Date('2019-07-09 20:11:23').getTime(),
+      }
+    ]
+  })
 }
 </script>

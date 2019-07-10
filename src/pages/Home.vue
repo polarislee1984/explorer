@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-2xl mx-auto md:pt-5">
-    <ContentHeader>Latest transactions</ContentHeader>
+    <ContentHeader>Dashboard</ContentHeader>
 
     <section
       v-if="priceChart"

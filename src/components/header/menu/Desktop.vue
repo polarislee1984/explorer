@@ -30,31 +30,15 @@
     </RouterLink>
 
     <RouterLink
-      :to="{ name: 'top-wallets', params: { page: 1 } }"
+      :to="{ name: 'transactions', params: { page: 1 } }"
       tag="button"
       class="menu-button"
       @click.native="closeMenu"
     >
-      {{ $t("Top Wallets") }}
+      Transactions
     </RouterLink>
-
-    <RouterLink
-      :to="{ name: 'delegate-monitor' }"
-      tag="button"
-      class="menu-button"
-      @click.native="closeMenu"
-    >
-      {{ $t("Delegate Monitor") }}
-    </RouterLink>
-
-    <!-- <RouterLink :to="{ name: 'statistics' }" tag="button" class="menu-button">Statistics</RouterLink> -->
 
     <div class="flex-auto" />
-
-    <!-- <a href="#" class="menu-button">
-      <span class="mr-2">Snapshots</span>
-      <img src="@/assets/images/icons/download.svg" />
-    </a> -->
   </div>
 </template>
 
