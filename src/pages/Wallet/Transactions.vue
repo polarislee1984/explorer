@@ -144,11 +144,73 @@ export default {
 
   methods: {
     setTransactions (transactions) {
-      if (!transactions) {
-        return
-      }
+      // if (!transactions) {
+      //   return
+      // }
 
-      this.transactions = transactions
+      //this.transactions = transactions
+      this.transactions = [
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        },
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        },
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        },
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        },
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        }
+      ]
     },
 
     setMeta (meta) {

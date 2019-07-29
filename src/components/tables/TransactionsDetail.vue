@@ -31,7 +31,7 @@
         cell-class="left-cell hidden lg:table-cell"
       >
         <template slot-scope="row">
-          {{ readableTimestamp(row.timestamp.unix) }}
+          {{ readableTimestamp(row.timestamp) }}
         </template>
       </table-column>
 
@@ -62,66 +62,21 @@
       </table-column>
 
       <table-column
-        :label="$t('Amount (token)', { token: networkToken() })"
+        :label="$t('Amount')"
         show="amount"
         header-class="right-header-cell"
         cell-class="right-cell"
       >
-        <template slot-scope="row">
-          <span class="whitespace-no-wrap">
-            <TransactionAmount
-              :transaction="row"
-              :type="row.type"
-            />
-          </span>
-        </template>
+        {{ readableCrypto(100) }}
       </table-column>
 
       <table-column
-        :label="$t('Fee (token)', { token: networkToken() })"
+        :label="$t('Fee')"
         show="fee"
         header-class="right-header-cell hidden md:table-cell"
         cell-class="right-cell hidden md:table-cell"
       >
-        <template slot-scope="row">
-          <span
-            v-tooltip="{
-              trigger: 'hover click',
-              content: row.price ? readableCurrency(row.fee, row.price) : '',
-              placement: 'top'
-            }"
-            class="whitespace-no-wrap"
-          >
-            {{ readableCrypto(row.fee) }}
-          </span>
-        </template>
-      </table-column>
-
-      <table-column
-        :label="$t('Confirmations')"
-        show="confirmations"
-        header-class="right-header-end-cell"
-        cell-class="right-end-cell"
-      >
-        <template slot-scope="row">
-          <div class="flex items-center justify-end whitespace-no-wrap">
-            <div
-              v-if="row.confirmations <= activeDelegates"
-              class="flex items-center justify-end whitespace-no-wrap"
-            >
-              <span class="text-green inline-block mr-2">{{ row.confirmations }}</span>
-              <img
-                class="icon flex-none"
-                src="@/assets/images/icons/clock.svg"
-              >
-            </div>
-            <div v-else>
-              <div v-tooltip="row.confirmations + ' ' + $t('Confirmations')">
-                {{ $t("Well confirmed") }}
-              </div>
-            </div>
-          </div>
-        </template>
+        {{ readableCrypto(5) }}
       </table-column>
     </table-component>
 

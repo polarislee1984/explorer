@@ -121,17 +121,11 @@ const methods = {
   },
 
   readableCrypto (value, appendCurrency = true, decimals = 8) {
-    if (typeof value !== 'undefined') {
-      value = (value /= 1e8).toLocaleString(locale, {
-        maximumFractionDigits: decimals
-      })
-
-      return appendCurrency ? `${value} ${
-        store.getters['network/symbol'] ||
-          store.getters['network/defaults'].symbol ||
-          ''
-      }` : value
+    if (value) {
+      return 'USD ' + value.toFixed(2)
     }
+
+    return value
   },
 
   networkToken () {

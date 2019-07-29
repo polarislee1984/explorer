@@ -23,12 +23,6 @@
           @click="setType('sent')"
         >
           {{ $t("Sent") }}
-          <span
-            :class="isTypeSent ? 'text-theme-text-secondary' : 'text-theme-text-tertiary'"
-            class="text-xs text-theme-text-secondary"
-          >
-            {{ sentCount }}
-          </span>
         </div>
         <div
           :class="[
@@ -39,12 +33,6 @@
           @click="setType('received')"
         >
           {{ $t("Received") }}
-          <span
-            :class="isTypeReceived ? 'text-theme-text-secondary' : 'text-theme-text-tertiary'"
-            class="text-xs"
-          >
-            {{ receivedCount }}
-          </span>
         </div>
       </nav>
       <div class="hidden sm:block">
@@ -110,15 +98,78 @@ export default {
 
   methods: {
     async getTransactions () {
-      this.transactions = null
+      // this.transactions = null
 
-      if (this.wallet.address !== undefined) {
-        const { data } = await TransactionService[`${this.type}ByAddress`](
-          this.wallet.address,
-          this.page
-        )
-        this.transactions = data
-      }
+      // if (this.wallet.address !== undefined) {
+      //   const { data } = await TransactionService[`${this.type}ByAddress`](
+      //     this.wallet.address,
+      //     this.page
+      //   )
+      //   this.transactions = data
+      // }
+
+      this.transactions = [
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        },
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        },
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        },
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        },
+        {
+          id:'60011bfb5184ec3dcce5cf42df8ab8b1346788fe3355546984eb68ba4ac61d62',
+          sender:'AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK',
+          recipient:'AJyn2dFkoqBN6dZ1siT9wWaRF2mwcVbcmA',
+          fromAmount:100,
+          toAmount:95,
+          fromCurrency: 'USD',
+          toCurrency: 'USD',
+          fee:5,
+          type:'Transfer',
+          timestamp:new Date('2019-07-09 20:11:23').getTime(),
+        }
+      ]
     },
 
     async getReceivedCount () {
